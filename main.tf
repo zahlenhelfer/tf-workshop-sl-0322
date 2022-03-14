@@ -13,6 +13,7 @@ provider "aws" {
 }
 
 resource "aws_instance" "app-server" {
+  count = 3
   ami                    = "ami-0f61af304b14f15fb"
   instance_type          = "t2.micro"
   monitoring             = true
@@ -28,7 +29,7 @@ resource "aws_instance" "app-server" {
   vpc_security_group_ids = [aws_security_group.web-access.id]
 
   tags = {
-    Name = "Webserver"
+    Name = "Webserver ${count.index+1}"
   }
 }
 
