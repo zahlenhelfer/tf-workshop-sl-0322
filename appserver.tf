@@ -1,6 +1,6 @@
 resource "aws_instance" "app-server" {
   count                  = var.node_count
-  ami                    = var.ami_id
+  ami                    = var.ami_id[var.region]
   instance_type          = var.app_server_instance_type
   monitoring             = true
   user_data              = <<EOF
