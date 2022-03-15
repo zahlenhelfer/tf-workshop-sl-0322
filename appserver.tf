@@ -1,7 +1,7 @@
 resource "aws_instance" "app-server" {
-  count                  = 3
-  ami                    = "ami-0f61af304b14f15fb"
-  instance_type          = "t2.micro"
+  count                  = var.node_count
+  ami                    = var.ami_id
+  instance_type          = var.app_server_instance_type
   monitoring             = true
   user_data              = <<EOF
     #!/bin/bash
