@@ -10,6 +10,12 @@ variable "deploy_database_as_ec2" {
   description = "value of true will deploy database as ec2 instance"
 }
 
+variable "static_bucket_name" {
+  type        = string
+  default     = "sl-mro-42"
+  description = "The name of the static bucket"
+}
+
 variable "ami_id" {
   type = map(string)
   default = {
