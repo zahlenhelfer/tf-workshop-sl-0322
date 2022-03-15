@@ -4,6 +4,12 @@ variable "app_server_instance_type" {
   description = "The aws instance-type"
 }
 
+variable "deploy_database_as_ec2" {
+  default     = false
+  type        = bool
+  description = "value of true will deploy database as ec2 instance"
+}
+
 variable "ami_id" {
   type = map(string)
   default = {
